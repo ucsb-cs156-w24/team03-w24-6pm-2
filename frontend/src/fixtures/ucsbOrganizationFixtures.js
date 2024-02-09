@@ -1,13 +1,11 @@
 const organizationFixtures = {
     oneOrganization:
-    [
       {
        "orgCode": "ZPR",
        "orgTranslationShort": "ZETA PHI RHO",
         "orgTranslation": "ZETA PHI RHO",
         "inactive": "false"      
-      }
-    ],
+      },
 
     threeOrganization:
     [
