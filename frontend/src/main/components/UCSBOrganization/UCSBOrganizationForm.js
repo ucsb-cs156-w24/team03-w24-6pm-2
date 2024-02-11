@@ -34,14 +34,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             )}
 
             <Form.Group className="mb-3">
-                <Form.Label htmlFor="orgCode">Org Code</Form.Label>
+                <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgCode"}
                     id="orgCode"
                     type="text"
                     isInvalid={Boolean(errors.orgCode)}
                     {...register("orgCode", {
-                        required: "Org Code is required.",
+                        required: "Organization Code is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -50,14 +50,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label htmlFor="orgTranslationShort">Org Translation Short</Form.Label>
+                <Form.Label htmlFor="orgTranslationShort">Organization Translation Short</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
                     id="orgTranslationShort"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslationShort)}
                     {...register("orgTranslationShort", {
-                        required: "Org Translation Short is required.",
+                        required: "Organization Translation Short is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -66,14 +66,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label htmlFor="orgTranslation">Org Translation</Form.Label>
+                <Form.Label htmlFor="orgTranslation">Organization Translation</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslation"}
                     id="orgTranslation"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslation)}
                     {...register("orgTranslation", {
-                        required: "Org Translation is required.",
+                        required: "Organization Translation is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
