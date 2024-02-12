@@ -1,44 +1,45 @@
 import React from 'react';
-import UCSBOrganizationTable from 'main/components/UCSBOrganization/UCSBOrganizationTable';
-import { ucsbOrganizationFixtures } from 'fixtures/ucsbOrganizationFixtures';
+import UCSBDatesTable from "main/components/UCSBDates/UCSBDatesTable";
+import { ucsbDatesFixtures } from 'fixtures/ucsbDatesFixtures';
 import { currentUserFixtures } from 'fixtures/currentUserFixtures';
 import { rest } from "msw";
 
 export default {
-    title: 'components/UCSBOrganization/UCSBOrganizationTable',
-    component: UCSBOrganizationTable
+    title: 'components/UCSBDates/UCSBDatesTable',
+    component: UCSBDatesTable
 };
 
 const Template = (args) => {
     return (
-        <UCSBOrganizationTable {...args} />
+        <UCSBDatesTable {...args} />
     )
 };
 
 export const Empty = Template.bind({});
 
 Empty.args = {
-    ucsbOrganization: []
+    dates: []
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-    ucsbOrganization: ucsbOrganizationFixtures.threeUCSBOrganization,
+    dates: ucsbDatesFixtures.threeDates,
     currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    ucsbOrganization: ucsbOrganizationFixtures.threeUCSBOrganization,
+    dates: ucsbDatesFixtures.threeDates,
     currentUser: currentUserFixtures.adminUser,
 }
 
 ThreeItemsAdminUser.parameters = {
     msw: [
-        rest.delete('/api/ucsbOrganization', (req, res, ctx) => {
+        rest.delete('/api/ucsbdates', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
             return res(ctx.status(200),ctx.json({}));
         }),
     ]
 };
+
