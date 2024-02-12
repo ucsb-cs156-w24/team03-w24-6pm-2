@@ -31,24 +31,28 @@ export default function UCSBOrganizationTable({
 
     const columns = [
         {
-            Header: 'id',
-            accessor: 'id', // accessor is the "key" in the data
+            Header: 'OrgCode',
+            accessor: 'orgCode', // accessor is the "key" in the data
         },
 
         {
-            Header: 'Name',
-            accessor: 'name',
+            Header: 'OrgTranslationShort',
+            accessor: 'orgTranslationShort',
         },
         {
-            Header: 'Description',
-            accessor: 'description',
+            Header: 'OrgTranslation',
+            accessor: 'orgTranslation',
+        },
+        {
+            Header: 'Inactive',
+            accessor: 'inactive',
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
-    } 
+    }
 
     return <OurTable
         data={ucsbOrganization}
