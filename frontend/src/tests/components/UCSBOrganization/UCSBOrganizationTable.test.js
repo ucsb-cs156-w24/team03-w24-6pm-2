@@ -74,10 +74,10 @@ describe("UCSBOrganizationTable tests", () => {
       expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("SKYDIVING CLUB AT UCSB");
       expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
   
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("OSLI");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`)).toHaveTextContent("STUDENT LIFE");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("OFFICE OF STUDENT LIFE");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("OSLI");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`)).toHaveTextContent("STUDENT LIFE");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslation`)).toHaveTextContent("OFFICE OF STUDENT LIFE");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-inactive`)).toHaveTextContent("false");
   
       const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
       expect(editButton).toBeInTheDocument();
@@ -118,10 +118,10 @@ describe("UCSBOrganizationTable tests", () => {
       expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("SKYDIVING CLUB AT UCSB");
       expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
   
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("OSLI");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`)).toHaveTextContent("STUDENT LIFE");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("OFFICE OF STUDENT LIFE");
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("OSLI");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`)).toHaveTextContent("STUDENT LIFE");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslation`)).toHaveTextContent("OFFICE OF STUDENT LIFE");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-inactive`)).toHaveTextContent("false");
   
       expect(screen.queryByText("Delete")).not.toBeInTheDocument();
       expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -154,7 +154,7 @@ describe("UCSBOrganizationTable tests", () => {
       fireEvent.click(editButton);
   
       // assert - check that the navigate function was called with the expected path
-      await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbOrganization/edit/2'));
+      await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbOrganization/edit/SKY'));
   
     });
   
