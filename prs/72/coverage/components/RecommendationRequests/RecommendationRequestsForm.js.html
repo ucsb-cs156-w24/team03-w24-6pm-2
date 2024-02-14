@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -245,16 +245,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,7 +392,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -409,23 +409,23 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 &nbsp;
-function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+function <span class="fstat-no" title="function not covered" >RecommendationRequestsForm(</span>{ initialContents, submitAction, buttonLabel = <span class="branch-0 cbranch-no" title="branch not covered" >"Create" </span>}) {
 &nbsp;
     // Stryker disable all
     const {
         register,
         formState: { errors },
         handleSubmit,
-    } = useForm(
+    } = <span class="cstat-no" title="statement not covered" >useForm(</span>
         { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
-    const navigate = useNavigate();
+    const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
-    const testIdPrefix = "RecommendationRequestsForm";
-    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+    const testIdPrefix = <span class="cstat-no" title="statement not covered" >"RecommendationRequestsForm";</span>
+    const isodate_regex = <span class="cstat-no" title="statement not covered" >/(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;</span>
 &nbsp;
-    return (
+<span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
 &nbsp;
             {initialContents &amp;&amp; (
@@ -520,7 +520,7 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
                             {...register("dateRequested", { required: true, pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.localDateTime &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'LocalDateTime is required. '}</span>
+                            {errors.localDateTime &amp;&amp; 'LocalDateTime is required. '}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
 &nbsp;
@@ -534,7 +534,7 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
                             {...register("dateNeeded", { required: true, pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.localDateTime &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateNeeded is required. '}</span>
+                            {errors.localDateTime &amp;&amp; 'DateNeeded is required. '}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
 &nbsp;
@@ -563,7 +563,7 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
             &lt;/Button&gt;
             &lt;Button
             variant="Secondary"
-            onClick={() =&gt; navigate(-1)}
+            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate(-1)}</span>
             data-testid={testIdPrefix + "-cancel"}
             &gt;
             Cancel
@@ -583,7 +583,7 @@ export default RecommendationRequestsForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 14 2024 13:49:39 GMT-0800 (Pacific Standard Time)
+                at Wed Feb 14 2024 15:42:05 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
