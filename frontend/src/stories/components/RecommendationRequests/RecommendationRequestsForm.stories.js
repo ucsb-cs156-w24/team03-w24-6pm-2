@@ -1,15 +1,15 @@
 import React from 'react';
-import RecommendationRequestForm from "main/components/RecommendationRequests/RecommendationRequestsForm"
+import RecommendationRequestsForm from "main/components/RecommendationRequests/RecommendationRequestsForm"
 import { recommendationRequestsFixtures, restaurantFixtures } from 'fixtures/recommendationRequestsFixtures';
 
 export default {
     title: 'components/RecommendationRequests/RecommendationRequestsForm',
-    component: RecommendationRequestForm
+    component: RecommendationRequestsForm
 };
 
 const Template = (args) => {
     return (
-        <RecommendationRequestForm {...args} />
+        <RecommendationRequestsForm {...args} />
     )
 };
 
