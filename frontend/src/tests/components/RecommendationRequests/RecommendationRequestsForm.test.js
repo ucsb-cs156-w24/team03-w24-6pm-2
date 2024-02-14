@@ -25,7 +25,7 @@ describe("RecommendationRequestsForm tests", () => {
         await screen.findByText(/Create/);
     });
 
-    ttest("renders correctly when passing in a RecommendationRequest", async () => {
+    test("renders correctly when passing in a RecommendationRequest", async () => {
 
         render(
             <Router  >
@@ -37,7 +37,7 @@ describe("RecommendationRequestsForm tests", () => {
         expect(screen.getByTestId(/RecommendationRequestsForm-id/)).toHaveValue("1");
     });
 
-    ttest("Correct Error messsages on bad input", async () => {
+    test("Correct Error messsages on bad input", async () => {
 
         render(
             <Router  >
