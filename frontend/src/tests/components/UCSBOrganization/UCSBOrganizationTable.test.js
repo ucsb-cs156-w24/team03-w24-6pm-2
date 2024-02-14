@@ -28,7 +28,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable UCSBOrganization={[]} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsbOrganization={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
