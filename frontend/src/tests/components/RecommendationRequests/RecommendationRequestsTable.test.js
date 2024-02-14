@@ -1,10 +1,9 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import { recommendationRequestsFixtures, restaurantFixtures } from "fixtures/recommendationRequestsFixtures";
+import { recommendationRequestsFixtures} from "fixtures/recommendationRequestsFixtures";
 import RestaurantTable from "main/components/RecommendationRequests/RecommendationRequestsTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import RecommendationRequestsTable from "main/components/RecommendationRequests/RecommendationRequestsTable";
 
 
 
