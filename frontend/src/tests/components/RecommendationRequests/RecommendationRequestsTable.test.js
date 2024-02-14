@@ -4,8 +4,6 @@ import RecommendationRequestsTable from "main/components/RecommendationRequests/
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import RecommendationRequestsTable from "main/components/RecommendationRequests/RecommendationRequestsTable";
-
 
 
 const mockedNavigate = jest.fn();
