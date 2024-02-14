@@ -41,7 +41,7 @@ describe("RecommendationRequestsForm tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
-                    <RecommendationRequestsFormecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation} />
+                    <RecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation} />
                 </Router>
             </QueryClientProvider>
         );
