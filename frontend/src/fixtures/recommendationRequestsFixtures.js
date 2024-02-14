@@ -3,8 +3,8 @@ const recommendationRequestsFixtures = {
     [
       {
        "id": 1,
-        "requesterEmail": "The Habit",
-        "professorEmail": "Burgers and Fries",
+        "requesterEmail": "cgaucho@ucsb.edu",
+        "professorEmail": "phtcon@ucsb.edu",
         "explanation": "BS/MS program",
         "dateRequested" : "2022-04-20T00:00:00",
         "dateNeeded" : "2022-05-01T00:00:00",
