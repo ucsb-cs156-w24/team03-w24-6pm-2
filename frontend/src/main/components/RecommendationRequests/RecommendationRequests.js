@@ -2,7 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
-function RecommendationRequestForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     // Stryker disable all
     const {
@@ -15,7 +15,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
     // Stryker restore all
     const navigate = useNavigate();
 
-    const testIdPrefix = "RecommendationRequestForm";
+    const testIdPrefix = "RecommendationRequestsForm";
 
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
@@ -167,4 +167,4 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
 
 }
 
-export default RecommendationRequestForm;
+export default RecommendationRequestsForm;
