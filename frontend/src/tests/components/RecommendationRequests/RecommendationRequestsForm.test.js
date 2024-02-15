@@ -22,6 +22,11 @@ describe("RecommendationRequestsForm tests", () => {
             </Router>
         );
         await screen.findByText(/Requester Email/);
+        await screen.findByText(/Professor Email/);
+        await screen.findByText(/Explanation/);
+        await screen.findByText(/Date Requested/);
+        await screen.findByText(/Date Needed/);
+        await screen.findByText(/Done/);
         await screen.findByText(/Create/);
     });
 
@@ -29,12 +34,13 @@ describe("RecommendationRequestsForm tests", () => {
 
         render(
             <Router  >
-                <RecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation} />
+                <RecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation[0]} />
             </Router>
         );
         await screen.findByTestId(/RecommendationRequestsForm-id/);
         expect(screen.getByText(/Id/)).toBeInTheDocument();
         expect(screen.getByTestId(/RecommendationRequestsForm-id/)).toHaveValue("1");
+
     });
 
     test("Correct Error messsages on bad input", async () => {
@@ -76,8 +82,8 @@ describe("RecommendationRequestsForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/RequesterEmail is required./);
-        expect(screen.getByText(/ProfessorEmail is required./)).toBeInTheDocument();
+        await screen.findByText(/Requester Email is required./);
+        expect(screen.getByText(/Professor Email is required./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
         expect(screen.getByText(/DateRequested is required./)).toBeInTheDocument();
         expect(screen.getByText(/DateNeeded is required./)).toBeInTheDocument();
@@ -139,5 +145,4 @@ describe("RecommendationRequestsForm tests", () => {
         await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
 
     });
-
 });

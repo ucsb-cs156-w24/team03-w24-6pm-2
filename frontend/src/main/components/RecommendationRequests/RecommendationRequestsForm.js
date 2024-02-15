@@ -35,26 +35,6 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
                 </Form.Group>
             )}
 
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="id">Id</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-id"}
-                    id="id"
-                    type="text"
-                    isInvalid={Boolean(errors.id)}
-                    {...register("id", {
-                        required: "id is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.id?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
-
             <Form.Group className="mb-3">
                 <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
                 <Form.Control
@@ -106,44 +86,44 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
             <Form.Group className="mb-3" >
                         <Form.Label htmlFor="dateRequested">Date Requested (iso format)</Form.Label>
                         <Form.Control
-                            data-testid="dateRequested"
+                            data-testid={testIdPrefix + "-dateRequested"}
                             id="dateRequested"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateRequested)}
-                            {...register("dateRequested", { required: true, pattern: isodate_regex })}
+                            {...register("dateRequested", { required: "DateRequested is required.", pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'LocalDateTime is required. '}
+                            {errors.dateRequested?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="dateNeeded">Date Needed (iso format)</Form.Label>
                         <Form.Control
-                            data-testid="dateNeeded"
+                            data-testid={testIdPrefix + "-dateNeeded"}
                             id="dateNeeded"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateNeeded)}
-                            {...register("dateNeeded", { required: true, pattern: isodate_regex })}
+                            {...register("dateNeeded", { required: "DateNeeded is required.", pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'DateNeeded is required. '}
+                            {errors.dateNeeded?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                <Form.Label htmlFor="boolean">Boolean</Form.Label>
+                <Form.Label htmlFor="done">Done</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-boolean"}
-                    id="boolean"
+                    data-testid={testIdPrefix + "-done"}
+                    id="done"
                     type="text"
-                    isInvalid={Boolean(errors.boolean)}
-                    {...register("boolean", {
-                        required: "Boolean is required.",
+                    isInvalid={Boolean(errors.done)}
+                    {...register("done", {
+                        required: "Done is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.boolean?.message}
+                    {errors.done?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
