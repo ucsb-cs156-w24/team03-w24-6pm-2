@@ -19,7 +19,7 @@ describe("RecommendationRequestsTable tests", () => {
   
     test("Has the expected column headers and content for ordinary user", () => {
 
-        const currentUser = currentUserFixtures.userOnly;
+        const currentUser = currentUserFixtures.adminUser;
 
      
 
@@ -27,7 +27,7 @@ describe("RecommendationRequestsTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <RecommendationRequestsTable requests={[recommendationRequestsFixtures.threeRecommendations]} currentUser={currentUser} />
+          <RecommendationRequestsTable requests={recommendationRequestsFixtures.threeRecommendations} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -35,7 +35,7 @@ describe("RecommendationRequestsTable tests", () => {
     const expectedHeaders = ["id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
     const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "localDateTime", "localTimeDate", "done"];
     const testId = "RecommendationRequestsTable";
-
+        console.log(recommendationRequestsFixtures.threeRecommendations);
     expectedHeaders.forEach((headerText) => {
         const header = screen.getByText(headerText);
         expect(header).toBeInTheDocument();
@@ -47,8 +47,9 @@ describe("RecommendationRequestsTable tests", () => {
       });
   
       expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+      console.log(screen.getByTestId(`${testId}-cell-row-0-col-id`))
       expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-  
+      
       const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
       expect(editButton).toBeInTheDocument();
       expect(editButton).toHaveClass("btn-primary");

@@ -34,7 +34,7 @@ describe("RecommendationRequestsForm tests", () => {
 
         render(
             <Router  >
-                <RecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation[0]} />
+                <RecommendationRequestsForm initialContents={recommendationRequestsFixtures.oneRecommendation} />
             </Router>
         );
         await screen.findByTestId(/RecommendationRequestsForm-id/);
