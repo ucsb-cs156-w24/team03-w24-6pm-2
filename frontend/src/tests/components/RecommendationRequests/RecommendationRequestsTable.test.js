@@ -19,7 +19,7 @@ describe("RecommendationRequestsTable tests", () => {
   
     test("Has the expected column headers and content for ordinary user", () => {
 
-        const currentUser = currentUserFixtures.adminUser;
+        const currentUser = currentUserFixtures.userOnly;
 
      
 
@@ -50,13 +50,7 @@ describe("RecommendationRequestsTable tests", () => {
       console.log(screen.getByTestId(`${testId}-cell-row-0-col-id`))
       expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
       
-      const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
-      expect(editButton).toBeInTheDocument();
-      expect(editButton).toHaveClass("btn-primary");
-  
-      const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-      expect(deleteButton).toBeInTheDocument();
-      expect(deleteButton).toHaveClass("btn-danger");
+
   
     });
   
@@ -124,6 +118,37 @@ describe("RecommendationRequestsTable tests", () => {
             await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequests/edit/1'));
 
         });
+
+        test("Delete button calls delete callback", async () => {
+            // arrange
+            const currentUser = currentUserFixtures.adminUser;
+            const testId = "RecommendationRequestsTable";
+        
+            // act - render the component
+            render(
+              <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                  <RecommendationRequestsTable requests={recommendationRequestsFixtures.threeRecommendations} currentUser={currentUser} />
+                </MemoryRouter>
+              </QueryClientProvider>
+            );
+        
+            // assert - check that the expected content is rendered
+            expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+            expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("ldelplaya@ucsb.edu");
+        
+            // const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+            // expect(deleteButton).toBeInTheDocument();
+            const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
+            expect(editButton).toBeInTheDocument();
+            expect(editButton).toHaveClass("btn-primary");
+        
+            const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+            expect(deleteButton).toBeInTheDocument();
+            expect(deleteButton).toHaveClass("btn-danger");
+            // act - click the delete button
+            fireEvent.click(deleteButton);
+          });
 
         });
         
