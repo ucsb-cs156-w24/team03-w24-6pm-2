@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RecommendationRequestForm from "main/components/RecommendationRequests/RecommendationRequestsForm";
-import { recommendationRequestFixtures } from "fixtures/recommendationRequestsFixtures";
+import RecommendationRequestsForm from "main/components/RecommendationRequests/RecommendationRequestsForm";
+import { recommendationRequestsFixtures } from "fixtures/recommendationRequestsFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -111,7 +111,7 @@ describe("RecommendationRequestsForm tests", () => {
        const dateRequestedField = screen.getByTestId("RecommendationRequestsForm-dateRequested");
        const dateNeededField = screen.getByTestId("RecommendationRequestsForm-dateNeeded");
 
-       const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
+       const submitButton = screen.getByTestId("RecommendationRequestsForm-submit");
 
        fireEvent.change(requesterEmailField, { target: { value: 'cgaucho@ucsb.edu' } });
        fireEvent.change(professorEmailField, { target: { value: 'phtcon@ucsb.edu' } });
