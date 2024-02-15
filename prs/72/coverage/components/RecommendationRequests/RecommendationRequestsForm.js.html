@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -214,27 +214,7 @@
 <a name='L149'></a><a href='#L149'>149</a>
 <a name='L150'></a><a href='#L150'>150</a>
 <a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a>
-<a name='L153'></a><a href='#L153'>153</a>
-<a name='L154'></a><a href='#L154'>154</a>
-<a name='L155'></a><a href='#L155'>155</a>
-<a name='L156'></a><a href='#L156'>156</a>
-<a name='L157'></a><a href='#L157'>157</a>
-<a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a>
-<a name='L160'></a><a href='#L160'>160</a>
-<a name='L161'></a><a href='#L161'>161</a>
-<a name='L162'></a><a href='#L162'>162</a>
-<a name='L163'></a><a href='#L163'>163</a>
-<a name='L164'></a><a href='#L164'>164</a>
-<a name='L165'></a><a href='#L165'>165</a>
-<a name='L166'></a><a href='#L166'>166</a>
-<a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,36 +225,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -442,26 +402,6 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
                 &lt;/Form.Group&gt;
             )}
 &nbsp;
-            &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
-                &lt;Form.Control
-                    data-testid={testIdPrefix + "-id"}
-                    id="id"
-                    type="text"
-                    isInvalid={Boolean(errors.id)}
-                    {...register("id", {
-                        required: "id is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
-                    })}
-                /&gt;
-                &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.id?.message}
-                &lt;/Form.Control.Feedback&gt;
-            &lt;/Form.Group&gt;
-&nbsp;
             &lt;Form.Group className="mb-3"&gt;
                 &lt;Form.Label htmlFor="requesterEmail"&gt;Requester Email&lt;/Form.Label&gt;
                 &lt;Form.Control
@@ -513,44 +453,44 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
             &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="dateRequested"&gt;Date Requested (iso format)&lt;/Form.Label&gt;
                         &lt;Form.Control
-                            data-testid="dateRequested"
+                            data-testid={testIdPrefix + "-dateRequested"}
                             id="dateRequested"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateRequested)}
-                            {...register("dateRequested", { required: true, pattern: isodate_regex })}
+                            {...register("dateRequested", { required: "DateRequested is required.", pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.localDateTime &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'LocalDateTime is required. '}</span>
+                            {errors.dateRequested?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
 &nbsp;
                     &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="dateNeeded"&gt;Date Needed (iso format)&lt;/Form.Label&gt;
                         &lt;Form.Control
-                            data-testid="dateNeeded"
+                            data-testid={testIdPrefix + "-dateNeeded"}
                             id="dateNeeded"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateNeeded)}
-                            {...register("dateNeeded", { required: true, pattern: isodate_regex })}
+                            {...register("dateNeeded", { required: "DateNeeded is required.", pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.localDateTime &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateNeeded is required. '}</span>
+                            {errors.dateNeeded?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
 &nbsp;
                     &lt;Form.Group className="mb-3"&gt;
-                &lt;Form.Label htmlFor="boolean"&gt;Boolean&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="done"&gt;Done&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={testIdPrefix + "-boolean"}
-                    id="boolean"
+                    data-testid={testIdPrefix + "-done"}
+                    id="done"
                     type="text"
-                    isInvalid={Boolean(errors.boolean)}
-                    {...register("boolean", {
-                        required: "Boolean is required.",
+                    isInvalid={Boolean(errors.done)}
+                    {...register("done", {
+                        required: "Done is required.",
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.boolean?.message}
+                    {errors.done?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
@@ -583,7 +523,7 @@ export default RecommendationRequestsForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 14 2024 16:48:51 GMT-0800 (Pacific Standard Time)
+                at Wed Feb 14 2024 18:54:16 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
