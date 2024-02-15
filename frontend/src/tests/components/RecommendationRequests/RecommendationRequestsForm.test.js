@@ -41,7 +41,7 @@ describe("RecommendationRequestsForm tests", () => {
 
         render(
             <Router  >
-                <Recomm />
+                <RecommendationRequestsForm/>
             </Router>
         );
         await screen.findByTestId("RecommendationRequestsForm-requesterEmail");
