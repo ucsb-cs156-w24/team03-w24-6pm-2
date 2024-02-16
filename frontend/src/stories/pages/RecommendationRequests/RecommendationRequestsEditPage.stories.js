@@ -1,10 +1,10 @@
 import React from 'react';
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+import { recommendationRequestsFixtures } from "fixtures/recommendationRequestsFixtures";
 import { rest } from "msw";
 
 import RecommendationRequestsEditPage from "main/pages/RecommendationRequests/RecommendationRequestsEditPage";
-import { recommendationRequestsFixtures } from 'fixtures/recommendationRequestsFixtures';
 
 export default {
     title: 'pages/RecommendationRequests/RecommendationRequestsEditPage',
