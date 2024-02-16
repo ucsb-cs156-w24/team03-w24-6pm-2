@@ -3,7 +3,7 @@ import UCSBDateForm from "main/components/UCSBDates/UCSBDateForm";
 import { ucsbDatesFixtures } from "fixtures/ucsbDatesFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
-import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
+import { menuItemReviewFixtures } from "fixtures/MenuItemReviewsFixtures";
 
 const mockedNavigate = jest.fn();
 
