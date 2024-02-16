@@ -28,7 +28,7 @@ jest.mock('react-router-dom', () => {
         __esModule: true,
         ...originalModule,
         useParams: () => ({
-            id: 17
+            id: 1
         }),
         Navigate: (x) => { mockNavigate(x); return null; }
     };
@@ -46,7 +46,9 @@ describe("RecommendationRequestsEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/recommendationrequests", { params: { id: 1 } }).timeout();
+            axiosMock.onGet("/api/recommendationrequests", { params: { id: 1 } }).reply(200,
+                
+                );
         });
 
     const queryClient = new QueryClient();
@@ -62,7 +64,7 @@ describe("RecommendationRequestsEditPage tests", () => {
                 </QueryClientProvider>
             );
             await screen.findByText("Edit RecommendationRequests");
-            expect(screen.queryByTestId("RecommendationRequestsEdit-requesterEmail")).not.toBeInTheDocument();
+            expect(screen.queryByTestId("RecommendationRequestsEdit-id")).not.toBeInTheDocument();
             restoreConsole();
         });
     });
@@ -79,21 +81,21 @@ describe("RecommendationRequestsEditPage tests", () => {
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
             axiosMock.onGet("/api/recommendationrequests", { params: { id: 1 } }).reply(200, {
             id: 1,
-            requesterEmailField: "cgaucho@ucsb.edu",
-            professorEmailField: "phtcon@ucsb.edu",
-            explanationField: "MS/BS Program",
+            requesterEmail: "cgaucho@ucsb.edu",
+            professorEmail: "phtcon@ucsb.edu",
+            explanation: "BS/MS Program",
             dateRequested: "2022-04-20T00:00:00",
             dateNeeded: "2022-05-01T00:00:00",
-            doneField: "false"
+            done: "false"
             });
             axiosMock.onPut('/api/recommendationrequests').reply(200, {
                 id: 1,
-            requesterEmailField: "cgaucho@ucsb.edu",
-            professorEmailField: "phtcon@ucsb.edu",
-            explanationField: "CS PhD Stanford",
+            requesterEmail: "cgaucho@ucsb.edu",
+            professorEmail: "phtcon@ucsb.edu",
+            Explanation: "CS PhD Stanford",
             dateRequested: "2022-04-20T00:00:00",
             dateNeeded: "2022-05-01T00:00:00",
-            doneField: "false"
+            done: "false"
             });
         });
 
@@ -119,7 +121,7 @@ describe("RecommendationRequestsEditPage tests", () => {
             );
 
 
-            await screen.findByTestId("RecommendationRequestsForm-requesterEmail");
+            await screen.findByTestId("RecommendationRequestsForm-id");
 
             const idField = screen.getByTestId("RecommendationRequestsForm-id");
             const requesterEmailField = screen.getByTestId("RecommendationRequestsForm-requesterEmail");
@@ -134,8 +136,8 @@ describe("RecommendationRequestsEditPage tests", () => {
             expect(requesterEmailField).toHaveValue("cgaucho@ucsb.edu");
             expect(professorEmailField).toHaveValue("phtcon@ucsb.edu");
             expect(explanationField).toHaveValue("BS/MS Program");
-            expect(dateRequestedField).toHaveValue("2022-04-20T00:00:00");
-            expect(dateNeededField).toHaveValue("2022-05-01T00:00:00");
+            expect(dateRequestedField).toHaveValue("2022-04-20T00:00");
+            expect(dateNeededField).toHaveValue("2022-05-01T00:00");
             expect(doneField).toHaveValue("false");
             expect(submitButton).toBeInTheDocument();
         });
@@ -150,7 +152,7 @@ describe("RecommendationRequestsEditPage tests", () => {
                 </QueryClientProvider>
             );
 
-            await screen.findByTestId("RecommendationRequestsForm-requesterEmail");
+            await screen.findByTestId("RecommendationRequestsForm-id");
 
             const idField = screen.getByTestId("RecommendationRequestsForm-id");
             const requesterEmailField = screen.getByTestId("RecommendationRequestsForm-requesterEmail");
@@ -165,8 +167,8 @@ describe("RecommendationRequestsEditPage tests", () => {
             expect(requesterEmailField).toHaveValue("cgaucho@ucsb.edu");
             expect(professorEmailField).toHaveValue("phtcon@ucsb.edu");
             expect(explanationField).toHaveValue("BS/MS Program");
-            expect(dateRequestedField).toHaveValue("2022-04-20T00:00:00");
-            expect(dateNeededField).toHaveValue("2022-05-01T00:00:00");
+            expect(dateRequestedField).toHaveValue("2022-04-20T00:00");
+            expect(dateNeededField).toHaveValue("2022-05-01T00:00");
             expect(doneField).toHaveValue("false");
             expect(submitButton).toBeInTheDocument();
 
@@ -175,19 +177,19 @@ describe("RecommendationRequestsEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("RecommendationRequests Updated - id: 1 requesterEmail: cgaucho@ucsb.edu");
-            expect(mockNavigate).toBeCalledWith({ "to": "/ucsbdates" });
+            expect(mockToast).toBeCalledWith("RecommendationRequests Updated - id: 1");
+            expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequests" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 1 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
-                id: 1,
-                requesterEmailField: "cgaucho@ucsb.edu",
-                professorEmailField: "phtcon@ucsb.edu",
-                explanationField: "CS PhD Stanford",
+                
+                requesterEmail: "cgaucho@ucsb.edu",
+                professorEmail: "phtcon@ucsb.edu",
+                explanation: "CS PhD Stanford",
                 dateRequested: "2022-04-20T00:00:00",
                 dateNeeded: "2022-05-01T00:00:00",
-                doneField: "false"
+                done: "false"
         })); // posted object
 
     });

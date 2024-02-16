@@ -20,7 +20,7 @@ export default function RecommendationRequestsEditPage({storybook=false}) {
         }
       }
     );
-
+      console.log(recommendationRequests?.id);
     const objectToAxiosPutParams = (recommendationRequests) => ({
         url: "/api/recommendationrequests",
         method: "PUT",
@@ -38,7 +38,7 @@ export default function RecommendationRequestsEditPage({storybook=false}) {
       });
 
       const onSuccess = (recommendationRequests) => {
-        toast(`RecommendationRequests Updated - id: ${recommendationRequests.id} name: ${recommendationRequests.requesterEmail}`);
+        toast(`RecommendationRequests Updated - id: ${recommendationRequests.id}`);
       }
 
       const mutation = useBackendMutation(

@@ -13,16 +13,16 @@ export default function RecommendationRequestsCreatePage({storybook=false}) {
         params: {
           requesterEmail: recommendationRequests.requesterEmail,
           professorEmail: recommendationRequests.professorEmail,
-          explanation: recommendationRequests.explanation,
-          dateRequested: recommendationRequests.localDateTime,
-          dateNeeded: recommendationRequests.localTimeDate,
+          Explanation: recommendationRequests.explanation,
+          dateRequested: recommendationRequests.dateRequested,
+          dateNeeded: recommendationRequests.dateNeeded,
           done: recommendationRequests.done
 
         }
       });
 
       const onSuccess = (recommendationRequests) => {
-        toast(`New recommendationRequest Created - id: ${recommendationRequests.id} name: ${recommendationRequests.requesterEmail}`);
+        toast(`New recommendationRequests Created - id: ${recommendationRequests.id} `);
       }
 
       const mutation = useBackendMutation(

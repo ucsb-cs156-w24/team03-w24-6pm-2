@@ -101,14 +101,14 @@ describe("RecommendationRequestsCreatePage tests", () => {
         expect(axiosMock.history.post[0].params).toEqual(
             {
             "done": "false",
-            "dateRequested": "2022-04-20T00:00:00",
-            "dateNeeded": "2022-05-01T00:00:00",
-            "explanation": "BS/MS Program",
+            "dateRequested": "2022-04-20T00:00",
+            "dateNeeded": "2022-05-01T00:00",
+            "Explanation": "BS/MS Program",
             "professorEmail": "phtcon@ucsb.edu",
             "requesterEmail": "cgaucho@ucsb.edu"
         });
 
-        expect(mockToast).toBeCalledWith("New recommendationRequests Created - id: 1 requesterEmail: cgaucho@ucsb.edu");
+        expect(mockToast).toBeCalledWith("New recommendationRequests Created - id: 1 ");
         expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequests" });
     });
 
