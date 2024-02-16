@@ -1,4 +1,4 @@
-import { onDeleteSuccess, cellToAxiosParamsDelete } from './UCSBDiningCommonsMenuItemsUtils';
+import { onDeleteSuccess, cellToAxiosParamsDelete } from 'main/utils/ucsbDiningCommonsMenuItemsUtils';
 import { toast } from 'react-toastify';
 
 jest.mock('react-toastify', () => {
