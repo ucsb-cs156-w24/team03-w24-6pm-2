@@ -1,5 +1,5 @@
-const organizationFixtures = {
-    oneOrganization:
+const ucsbOrganizationFixtures = {
+    oneUCSBOrganization:
       {
        "orgCode": "ZPR",
        "orgTranslationShort": "ZETA PHI RHO",
@@ -7,7 +7,7 @@ const organizationFixtures = {
         "inactive": "false"      
       },
 
-    threeOrganization:
+    threeUCSBOrganization:
     [
         {
             "orgCode": "SKY",
@@ -33,4 +33,4 @@ const organizationFixtures = {
     ]
 };
 
-export { organizationFixtures };
+export { ucsbOrganizationFixtures };
