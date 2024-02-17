@@ -57,7 +57,7 @@ describe("UCSBOrganizationForm tests", () => {
       expect(header).toBeInTheDocument();
     });
 
-    expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
+    expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-orgCode`).value).toBe("ZPR");
     // Add more assertions based on your fixture data
   });
