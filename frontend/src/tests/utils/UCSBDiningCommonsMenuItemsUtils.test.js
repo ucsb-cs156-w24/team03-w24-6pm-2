@@ -1,4 +1,4 @@
-import { onDeleteSuccess, cellToAxiosParamsDelete } from "main/utils/ucsbDiningCommonsMenuItemsUtils";
+import { onDeleteSuccess, cellToAxiosParamsDelete } from "main/utils/UCSBDiningCommonsMenuItemsUtils";
 import mockConsole from "jest-mock-console";
 
 const mockToast = jest.fn();
