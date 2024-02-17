@@ -1,11 +1,16 @@
 import { onDeleteSuccess, cellToAxiosParamsDelete } from 'main/utils/ucsbDiningCommonsMenuItemsUtils';
 import { toast } from 'react-toastify';
 
+
+// mockFn();
+
 jest.mock('react-toastify', () => {
   return {
-    toast: jest.fn(),
+    toast: jest.fn()
   };
 });
+
+// var mockFn = jest.fn();
 
 describe('UCSBDiningCommonsMenuItemsUtils', () => {
   afterEach(() => {
