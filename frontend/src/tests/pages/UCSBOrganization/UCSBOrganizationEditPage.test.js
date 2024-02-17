@@ -73,7 +73,7 @@ describe("UCSBOrganizationEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/ucsborganization", { params: { orgCode: "SKY" } }).reply(200, {
+            axiosMock.onGet("/api/ucsborganization", { params: { code: "SKY" } }).reply(200, {
                 orgCode: "SKY",
                 orgTranslationShort: "SKYDIVING CLUB",
                 orgTranslation: "SKYDIVING CLUB AT UCSB",
@@ -130,7 +130,7 @@ describe("UCSBOrganizationEditPage tests", () => {
             expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganization" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
-            expect(axiosMock.history.put[0].params).toEqual({ orgCode: "SKY" });
+            expect(axiosMock.history.put[0].params).toEqual({ code: "SKY" });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
                 orgCode: "SKY",
                 orgTranslationShort: "SKYDIVING CLUB",
