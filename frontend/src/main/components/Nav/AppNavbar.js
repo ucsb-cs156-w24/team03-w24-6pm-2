@@ -65,7 +65,10 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
           )
         }
                 
-     
+                </>
+              )
+              
+            }
             
             <Nav className="ml-auto">
               {
@@ -83,5 +86,3 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
         </Container >
       </Navbar >
     </>
-  );
-}
