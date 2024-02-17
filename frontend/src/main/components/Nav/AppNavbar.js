@@ -86,3 +86,5 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
         </Container >
       </Navbar >
     </>
+  );
+}
