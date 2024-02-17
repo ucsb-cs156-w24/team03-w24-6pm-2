@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function UCSBOrganizationEditPage({storybook=false}) {
     let { orgCode } = useParams();
-
+    
     const { data: ucsbOrganization, _error, _status } =
         useBackend(
             // Stryker disable next-line all : don't test internal caching of React Query
@@ -16,7 +16,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
                 method: "GET",
                 url: `/api/ucsborganization`,
                 params: {
-                    orgCode,
+                    code: orgCode
                 }
             }
         );
@@ -25,7 +25,8 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         url: "/api/ucsborganization",
         method: "PUT",
         params: {
-            orgCode: ucsbOrganization.orgCode,
+            code: ucsbOrganization.orgCode,
+            
         },
         data: {
             orgCode: ucsbOrganization.orgCode,
