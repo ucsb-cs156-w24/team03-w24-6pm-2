@@ -22,7 +22,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <ArticlesTable
-            dates={articlesFixtures.threeArticles}
+            articles={articlesFixtures.threeArticles}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -82,7 +82,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <ArticlesTable
-            dates={articlesFixtures.threeArticles}
+            articles={articlesFixtures.threeArticles}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -143,7 +143,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <ArticlesTable
-            dates={articlesFixtures.threeArticles}
+            articles={articlesFixtures.threeArticles}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -206,7 +206,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <ArticlesTable
-            dates={articlesFixtures.threeArticles}
+            articles={articlesFixtures.threeArticles}
             currentUser={currentUser}
           />
         </MemoryRouter>
