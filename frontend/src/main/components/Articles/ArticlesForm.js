@@ -90,9 +90,9 @@ function ArticlesForm({
               data-testid="ArticlesForm-url"
               id="url"
               type="text"
-              isInvalid={Boolean(errors.name)}
+              isInvalid={Boolean(errors.url)}
               {...register("url", {
-                required: "Url is required.",
+                required: true,
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -107,9 +107,9 @@ function ArticlesForm({
               data-testid="ArticlesForm-explanation"
               id="explanation"
               type="text"
-              isInvalid={Boolean(errors.name)}
+              isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
-                required: "Explanation is required.",
+                required: true,
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -124,9 +124,9 @@ function ArticlesForm({
               data-testid="ArticlesForm-email"
               id="email"
               type="text"
-              isInvalid={Boolean(errors.name)}
+              isInvalid={Boolean(errors.email)}
               {...register("email", {
-                required: "Email is required.",
+                required: true,
                 pattern: emailRegex,
               })}
             />
