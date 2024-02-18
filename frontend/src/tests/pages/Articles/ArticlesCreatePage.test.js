@@ -62,7 +62,7 @@ describe("ArticlesCreatePage tests", () => {
             dateAdded: "2022-02-02T00:00"
         };
 
-        axiosMock.onPost("/api/articles/post").reply( 202, article );
+        axiosMock.onPost("/api/ucsbarticles/post").reply( 202, article );
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -105,7 +105,7 @@ describe("ArticlesCreatePage tests", () => {
         });
 
         expect(mockToast).toBeCalledWith("New article Created - id: 17 title: a");
-        expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
+        expect(mockNavigate).toBeCalledWith({"to": "/articles"});
     });
 
 
