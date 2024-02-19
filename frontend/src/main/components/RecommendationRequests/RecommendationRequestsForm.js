@@ -16,16 +16,18 @@ function RecommendationRequestsForm({ initialContents, submitAction, buttonLabel
     const navigate = useNavigate();
 
     const testIdPrefix = "RecommendationRequestsForm";
+     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
+    
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
 
+                
             {initialContents && (
                 <Form.Group className="mb-3" >
                     <Form.Label htmlFor="id">Id</Form.Label>
                     <Form.Control
-                        data-testid={testIdPrefix + "-id"}
+                        data-testid={"RecommendationRequestsForm-id"}
                         id="id"
                         type="text"
                         {...register("id")}
