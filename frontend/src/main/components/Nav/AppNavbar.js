@@ -8,7 +8,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
     <>
       {
         (currentUrl.startsWith("http://localhost:3000") ||
-          currentUrl.startsWith("http://127.0.0.1:3000")) && (
+          currentUrl.startsWith("http://127.0.0.1:3000")) && ( //test
           <AppNavbarLocalhost url={currentUrl} />
         )
       }
