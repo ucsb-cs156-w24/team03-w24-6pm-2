@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import { menuItemReviewFixtures } from "fixtures/MenuItemReviewsFixtures.js";
+import { menuItemReviewFixtures } from "fixtures/MenuItemReviewsFixtures";
 import MenuItemReviewTable from "main/components/MenuItemReview/MenuItemReviewTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -61,7 +61,7 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
+        <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -101,15 +101,17 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
+        <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    await waitFor(() => { expect(screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-id`)).toHaveTextContent("37"); });
+    const testId = "MenuItemReviewTable";
 
-    const editButton = screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-Edit-button`);
+    await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("37"); });
+
+    const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
     
     fireEvent.click(editButton);
@@ -126,7 +128,7 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
+        <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -135,11 +137,58 @@ describe("UserTable tests", () => {
 
     // assert - check that the expected content is rendered
     expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("37");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent("12");
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();
 
     // act - click the delete button
+    fireEvent.click(deleteButton);
+  });
+
+  test("Delete button press for adminUser", () => {
+    const currentUser = currentUserFixtures.adminUser;
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+        <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+
+    const expectedHeaders = ["id", "itemId", "reviewerEmail", "Date", "stars", "comments"];
+    const expectedFields = ["id", "itemId", "reviewerEmail", "localDateTime", "stars", "comments"];
+    const testId = "MenuItemReviewTable";
+
+    expectedHeaders.forEach((headerText) => {
+      const header = screen.getByText(headerText);
+      expect(header).toBeInTheDocument();
+    });
+
+    expectedFields.forEach((field) => {
+      const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
+      expect(header).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "37"
+    );
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "47"
+    );
+
+    const editButton = screen.getByTestId(
+      `${testId}-cell-row-0-col-Edit-button`
+    );
+    expect(editButton).toBeInTheDocument();
+    expect(editButton).toHaveClass("btn-primary");
+
+    const deleteButton = screen.getByTestId(
+      `${testId}-cell-row-0-col-Delete-button`
+    );
+    expect(deleteButton).toBeInTheDocument();
+    expect(deleteButton).toHaveClass("btn-danger");
     fireEvent.click(deleteButton);
   });
 
