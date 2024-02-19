@@ -150,5 +150,26 @@ describe("RecommendationRequestsTable tests", () => {
             fireEvent.click(deleteButton);
           });
 
+          test("Edit and Delete buttons are not present for non-admin users", async () => {
+            // arrange
+            const currentUser = currentUserFixtures.userOnly; // assuming this user does not have ROLE_ADMIN
+            const testId = "RecommendationRequestsTable";
+            
+            // act - render the component with a non-admin user
+            render(
+              <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                  <RecommendationRequestsTable requests={recommendationRequestsFixtures.threeRecommendations} currentUser={currentUser} />
+                </MemoryRouter>
+              </QueryClientProvider>
+            );
+            
+            // assert - check that the Edit and Delete buttons are not rendered
+            const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
+            expect(editButton).not.toBeInTheDocument();
+            
+            const deleteButton = screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`);
+            expect(deleteButton).not.toBeInTheDocument();
+          });
+
         });
-        
