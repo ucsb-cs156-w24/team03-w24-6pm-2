@@ -60,7 +60,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.itemId && 'itemId is required. '}
-                            {errors.itemId?.type === 'pattern'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

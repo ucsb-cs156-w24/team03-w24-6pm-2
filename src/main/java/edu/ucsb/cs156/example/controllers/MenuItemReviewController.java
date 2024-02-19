@@ -63,7 +63,7 @@ public class MenuItemReviewController extends ApiController{
         menuItemReview.setItemId(itemID);
         menuItemReview.setReviewerEmail(reviewerEmail);
         menuItemReview.setStars(stars);
-        menuItemReview.setDateReviewed(localDateTime);
+        menuItemReview.setLocalDateTime(localDateTime);
         menuItemReview.setComments(comments);
 
         MenuItemReview savedReviews = menuItemReviewRepository.save(menuItemReview);
@@ -96,7 +96,7 @@ public class MenuItemReviewController extends ApiController{
         review.setItemId(incoming.getItemId());
         review.setReviewerEmail(incoming.getReviewerEmail());
         review.setStars(incoming.getStars());
-        review.setDateReviewed(incoming.getDateReviewed());
+        review.setLocalDateTime(incoming.getLocalDateTime());
         review.setComments(incoming.getComments());
 
         menuItemReviewRepository.save(review);

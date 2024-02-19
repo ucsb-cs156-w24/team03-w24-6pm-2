@@ -2,11 +2,11 @@ import React from 'react'
 import { useBackend } from 'main/utils/useBackend';
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import MenuItemReivewTable from 'main/components/MenuItemReview/MenuItemReviewTable';
+import MenuItemReviewTable from 'main/components/MenuItemReview/MenuItemReviewTable';
 import { Button } from 'react-bootstrap';
 import { useCurrentUser , hasRole} from 'main/utils/currentUser';
 
-export default function MenuItemReivewIndexPage() {
+export default function MenuItemReviewIndexPage() {
 
   const currentUser = useCurrentUser();
 
@@ -37,7 +37,7 @@ export default function MenuItemReivewIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>Reviews</h1>
-        <MenuItemReivewTable reviews={reviews} currentUser={currentUser} />
+        <MenuItemReviewTable reviews={reviews} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )

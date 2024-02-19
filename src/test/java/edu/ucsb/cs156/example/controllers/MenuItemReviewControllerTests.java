@@ -69,7 +69,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt1)
+                            .localDateTime(ldt1)
                             .comments("comment")
                             .build();
 
@@ -79,7 +79,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(2)
                             .reviewerEmail("mock@mock.com")
                             .stars(2)
-                            .dateReviewed(ldt2)
+                            .localDateTime(ldt2)
                             .comments("comment")
                             .build();
 
@@ -126,7 +126,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt1)
+                            .localDateTime(ldt1)
                             .comments("comment")
                             .build();
 
@@ -158,7 +158,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt1)
+                            .localDateTime(ldt1)
                             .comments("comment")
                             .build();
 
@@ -213,7 +213,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt1)
+                            .localDateTime(ldt1)
                             .comments("comment")
                             .build();
 
@@ -221,7 +221,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(2)
                             .reviewerEmail("mock2@mock.com")
                             .stars(2)
-                            .dateReviewed(ldt2)
+                            .localDateTime(ldt2)
                             .comments("comment2")
                             .build();
 
@@ -257,7 +257,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt1)
+                            .localDateTime(ldt1)
                             .comments("comment")
                             .build();
 
@@ -300,7 +300,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                             .itemId(1)
                             .reviewerEmail("mock@mock.com")
                             .stars(5)
-                            .dateReviewed(ldt)
+                            .localDateTime(ldt)
                             .comments("comment")
                             .build();
 
