@@ -1,6 +1,4 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
-import UCSBDateForm from "main/components/UCSBDates/UCSBDateForm";
-import { ucsbDatesFixtures } from "fixtures/ucsbDatesFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
 import { menuItemReviewFixtures } from "fixtures/MenuItemReviewsFixtures";
@@ -55,7 +53,11 @@ describe("MenuItemReviewForm tests", () => {
         const commentsField = screen.getByTestId("MenuItemReviewForm-comments");
         const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
-        fireEvent.change(localDateTimeField, { target: { value: 'bad-input' } });
+        fireEvent.change(itemIdField, { target: { value: "bad-input" } });
+        fireEvent.change(reviewerEmailField, { target: { value: "bad-input" } });
+        fireEvent.change(starsField, { target: { value: "bad-input" } });
+        fireEvent.change(localDateTimeField, { target: { value: "bad-input" } });
+        fireEvent.change(commentsField, { target: { value: "bad-input" } });
         fireEvent.click(submitButton);
 
         await screen.findByText(/LocalDateTime is required in yyyy-mm-ddThh:mm:ss format/);
