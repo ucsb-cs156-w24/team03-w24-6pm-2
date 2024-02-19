@@ -100,7 +100,6 @@ describe("MenuItemReviewForm tests", () => {
         const localDateTimeField = screen.getByTestId("MenuItemReviewForm-localDateTime");
         const starsField = screen.getByTestId("MenuItemReviewForm-stars");
         const commentsField = screen.getByTestId("MenuItemReviewForm-comments");
-        const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
         fireEvent.change(itemIdField, { target: { value: '2' } });
         fireEvent.change(reviewerEmailField, { target: { value: 'email' } });
