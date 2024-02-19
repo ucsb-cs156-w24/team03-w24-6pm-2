@@ -8,7 +8,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
     <>
       {
         (currentUrl.startsWith("http://localhost:3000") ||
-          currentUrl.startsWith("http://127.0.0.1:3000")) && (
+          currentUrl.startsWith("http://127.0.0.1:3000")) && ( //test
           <AppNavbarLocalhost url={currentUrl} />
         )
       }
@@ -51,23 +51,18 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 )
               }
           </Nav>
-            {
+          {
               currentUser && currentUser.loggedIn && (
                 <>
                   <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
+                  <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
-                  {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Nav.Link as={Link} to="/recommendationrequests">RecommendationRequests</Nav.Link>
-            </>
-          )
-        }
-                
+                  <Nav.Link as={Link} to="/recommendationrequests">RecommendationRequests</Nav.Link>
+                  <Nav.Link as={Link} to="/ucsborganization">UCSBOrganization</Nav.Link>
+
                 </>
               )
-              
             }
             
             <Nav className="ml-auto">
