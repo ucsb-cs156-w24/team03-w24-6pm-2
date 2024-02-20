@@ -176,12 +176,12 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
             verify(menuItemReviewRepository, times(1)).delete(any());
 
             Map<String, Object> json = responseToJson(response);
-            assertEquals("UCSBDate with id 15 deleted", json.get("message"));
+            assertEquals("Review with id 15 deleted", json.get("message"));
     }
     
     @WithMockUser(roles = { "ADMIN", "USER" })
     @Test
-    public void admin_tries_to_delete_non_existant_ucsbdate_and_gets_right_error_message()
+    public void admin_tries_to_delete_non_existant_Review_and_gets_right_error_message()
                     throws Exception {
             // arrange
 
@@ -196,7 +196,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
             // assert
             verify(menuItemReviewRepository, times(1)).findById(15L);
             Map<String, Object> json = responseToJson(response);
-            assertEquals("UCSBDate with id 15 not found", json.get("message"));
+            assertEquals("MenuItemReview with id 15 not found", json.get("message"));
     }
 
     // Tests for PUT /api/menuitemreview?id=... 
