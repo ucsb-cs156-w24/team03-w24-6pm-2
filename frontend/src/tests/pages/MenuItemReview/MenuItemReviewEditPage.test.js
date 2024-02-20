@@ -120,7 +120,6 @@ describe("MenuItemReviewEditPage tests", () => {
             const starsField = screen.getByTestId("MenuItemReviewForm-stars");
             const localDateTimeField = screen.getByTestId("MenuItemReviewForm-localDateTime");
             const commentsField = screen.getByTestId("MenuItemReviewForm-comments");
-            const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
             expect(itemIdField).toHaveValue("5");
             expect(reviewerEmailField).toHaveValue("mock@mock.edu");
