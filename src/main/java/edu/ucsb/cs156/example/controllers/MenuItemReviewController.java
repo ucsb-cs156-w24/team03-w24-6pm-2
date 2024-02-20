@@ -52,7 +52,8 @@ public class MenuItemReviewController extends ApiController{
             @Parameter(name="itemID") @RequestParam long itemID,
             @Parameter(name="reviewerEmail") @RequestParam String reviewerEmail,
             @Parameter(name="stars") @RequestParam int stars,
-            @Parameter(name="localDateTime", description="date (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime,            @Parameter(name="comments") @RequestParam String comments)
+            @Parameter(name="localDateTime", description="date (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime,            
+            @Parameter(name="comments") @RequestParam String comments)
 
     throws JsonProcessingException {
 
@@ -62,7 +63,7 @@ public class MenuItemReviewController extends ApiController{
         menuItemReview.setItemId(itemID);
         menuItemReview.setReviewerEmail(reviewerEmail);
         menuItemReview.setStars(stars);
-        menuItemReview.setDateReviewed(localDateTime);
+        menuItemReview.setLocalDateTime(localDateTime);
         menuItemReview.setComments(comments);
 
         MenuItemReview savedReviews = menuItemReviewRepository.save(menuItemReview);
@@ -70,22 +71,22 @@ public class MenuItemReviewController extends ApiController{
         return savedReviews;
     }
 
-    @Operation(summary= "Delete a UCSBDate")
+    @Operation(summary= "Delete a Review")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
-    public Object deleteUCSBDate(
+    public Object deleteMenuItemReview(
             @Parameter(name="id") @RequestParam Long id) {
         MenuItemReview review = menuItemReviewRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(UCSBDate.class, id));
+                .orElseThrow(() -> new EntityNotFoundException(MenuItemReview.class, id));
 
         menuItemReviewRepository.delete(review);
-        return genericMessage("UCSBDate with id %s deleted".formatted(id));
+        return genericMessage("Review with id %s deleted".formatted(id));
     }
 
-    @Operation(summary= "Update a single date")
+    @Operation(summary= "Update a single review")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
-    public MenuItemReview updateUCSBDate(
+    public MenuItemReview updateMenuItemReview(
             @Parameter(name="id") @RequestParam Long id,
             @RequestBody @Valid MenuItemReview incoming) {
 
@@ -95,7 +96,7 @@ public class MenuItemReviewController extends ApiController{
         review.setItemId(incoming.getItemId());
         review.setReviewerEmail(incoming.getReviewerEmail());
         review.setStars(incoming.getStars());
-        review.setDateReviewed(incoming.getDateReviewed());
+        review.setLocalDateTime(incoming.getLocalDateTime());
         review.setComments(incoming.getComments());
 
         menuItemReviewRepository.save(review);
