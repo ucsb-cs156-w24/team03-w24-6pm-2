@@ -93,8 +93,22 @@ function App() {
 
 
 {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendationrequests" element={<RecommendationRequestsIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/recommendationrequests/edit/:id" element={<RecommendationRequestsEditPage />} />
+              <Route exact path="/recommendationrequests/create" element={<RecommendationRequestsCreatePage />} />
+            </>
+          )
+        }
 
-         {
+             {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/menuitemreview" element={<MenuItemReviewIndexPage />} />
@@ -110,23 +124,6 @@ function App() {
           )
         }
         {
-
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/recommendationrequests" element={<RecommendationRequestsIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/recommendationrequests/edit/:id" element={<RecommendationRequestsEditPage />} />
-              <Route exact path="/recommendationrequests/create" element={<RecommendationRequestsCreatePage />} />
-            </>
-          )
-        }
-        
-        {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/ucsborganization" element={<UCSBOrganizationIndexPage />} />
@@ -136,7 +133,7 @@ function App() {
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
-              <Route exact path="/ucsborganization/edit/:id" element={<UCSBOrganizationEditPage />} />
+              <Route exact path="/ucsborganization/edit/:orgCode" element={<UCSBOrganizationEditPage />} />
               <Route exact path="/ucsborganization/create" element={<UCSBOrganizationCreatePage />} />
             </>
           )
