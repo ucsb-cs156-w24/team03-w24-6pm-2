@@ -1,16 +1,18 @@
 const menuItemReviewFixtures = {
     oneReview: {
-        "id": 7,
-        "diningCommonsCode": "ortega",
-        "name": "Apple Pie",
-        "station" : "Desserts"
-      },
+        "id": 47,
+        "itemId": 7,
+        "reviewerEmail" : "cgaucho@ucsb.edu",
+        "stars": 5,
+        "comments": "I love the Apple Pie"
+    },
     threeReviews: [
         {
-            "id": 7,
-            "diningCommonsCode": "ortega",
-            "name": "Apple Pie",
-            "station" : "Desserts"
+            "id": 37,
+            "itemId": 12,
+            "reviewerEmail" : "cgaucho@ucsb.edu",
+            "stars": 3,
+            "comments": "I like the Apple Pie"
         },
         {
             "id": 47,
