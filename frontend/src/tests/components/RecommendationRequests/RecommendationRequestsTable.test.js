@@ -49,6 +49,8 @@ describe("RecommendationRequestsTable tests", () => {
       expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
       console.log(screen.getByTestId(`${testId}-cell-row-0-col-id`))
       expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-Done`)).toHaveTextContent("false");
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-Done`)).toHaveTextContent("false");
       
 
   
@@ -92,6 +94,8 @@ describe("RecommendationRequestsTable tests", () => {
             const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
             expect(deleteButton).toBeInTheDocument();
             expect(deleteButton).toHaveClass("btn-danger");
+            expect(screen.getByTestId(`${testId}-cell-row-0-col-Done`)).toHaveTextContent("false");
+            expect(screen.getByTestId(`${testId}-cell-row-1-col-Done`)).toHaveTextContent("false");
 
         });
 
