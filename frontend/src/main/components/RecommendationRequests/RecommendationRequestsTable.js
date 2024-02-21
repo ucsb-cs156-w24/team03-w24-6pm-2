@@ -46,15 +46,15 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
         },
         {
             Header: 'DateRequested',
-            accessor: 'localDateTime',
+            accessor: 'dateRequested',
         },
         {
             Header: 'DateNeeded',
-            accessor: 'localTimeDate',
+            accessor: 'dateNeeded',
         },
         {
             Header: 'Done',
-            accessor: 'done',
+            accessor: row => String(row.done)
         }
     ];
 
